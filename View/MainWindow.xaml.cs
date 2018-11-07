@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ViewModel;
+using Model.Reversi;
 
 namespace View
 {
@@ -23,6 +25,10 @@ namespace View
         public MainWindow()
         {
             InitializeComponent();
+            int Width = 10;
+            int Height = 10;
+            BoardViewModel vm = new BoardViewModel(Width, Height);
+            this.DataContext = vm;
         }
     }
 }
