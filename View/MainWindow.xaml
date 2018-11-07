@@ -22,7 +22,7 @@
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
-        <ItemsControl ItemsSource="{Binding PRows}">
+        <ItemsControl ItemsSource="{Binding Rows.Value}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Vertical" />
@@ -38,8 +38,8 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Button Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="1" Width="35" Height="35">
-                                    <Ellipse Width="20" Height="20" Stroke="Black" StrokeThickness="2" Visibility="{Binding Owner, Converter={StaticResource OwnerToVisibilityConverter}}" Fill="{Binding Owner, Converter={StaticResource OwnerToColorConverter}}" />
+                                <Button Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="1" Width="35" Height="35" Command="{Binding PutStone}">
+                                    <Ellipse Width="20" Height="20" Stroke="Black" StrokeThickness="2" Visibility="{Binding Owner.Value, Converter={StaticResource OwnerToVisibilityConverter}}" Fill="{Binding Owner.Value, Converter={StaticResource OwnerToColorConverter}}" />
                                 </Button>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>

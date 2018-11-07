@@ -11,10 +11,9 @@ namespace ViewModel
 {
     public class BoardViewModel
     {
-        public List<BoardRowViewModel> PRows { get { return Rows.Value; } }
         private Cell<ReversiGame> Game;
         private Cell<ReversiBoard> Board;
-        private Cell<List<BoardRowViewModel>> Rows;
+        public Cell<List<BoardRowViewModel>> Rows { get; set; }
 
         public BoardViewModel(int width, int height)
         {
