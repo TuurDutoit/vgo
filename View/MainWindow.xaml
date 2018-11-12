@@ -10,6 +10,19 @@
     
     <Window.Resources>
         <local:OwnerToStoneConverter x:Key="OwnerToStone"></local:OwnerToStoneConverter>
+        <ControlTemplate TargetType="Button" x:Key="Square">
+            <Border x:Name="Border" Background="White" BorderThickness="1" BorderBrush="#FF888888">
+                <ContentPresenter />
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter TargetName="Border" Property="Background" Value="#FFCCCCCC" />
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="Border" Property="Background" Value="#FFDDDDDD" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
     </Window.Resources>
     
     <Grid>
@@ -36,7 +49,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Button Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="1" Width="35" Height="35" Command="{Binding PutStone}" Content="{Binding cOwner.Value, Converter={StaticResource OwnerToStone}}" />
+                                <Button Template="{StaticResource Square}" Background="White" BorderBrush="#FFAAAAAA" BorderThickness="1" Width="35" Height="35" Command="{Binding PutStone}" Content="{Binding cOwner.Value, Converter={StaticResource OwnerToStone}}" />
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
