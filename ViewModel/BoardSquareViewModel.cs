@@ -25,36 +25,10 @@ namespace ViewModel
             this._Position = position;
             this.cOwner = cGame.Derive(game => game.Board[position]);
             this.cIsValidMove = cGame.Derive(game => game.Board.IsValidMove(position, game.CurrentPlayer));
-            this.PutStone = new PutStoneCommand(cIsValidMove, PutStoneAction);
-        }
-
-        private void PutStoneAction()
-        {
-            _cGame.Value = _cGame.Value.PutStone(_Position);
-        }
-
-        private class PutStoneCommand : ICommand
-        {
-            public event EventHandler CanExecuteChanged;
-            private Action _PutStone;
-            private Cell<bool> _cIsValidMove;
-
-            public PutStoneCommand(Cell<bool> cIsValidMove, Action putStone)
-            {
-                this._PutStone = putStone;
-                this._cIsValidMove = cIsValidMove;
-                this._cIsValidMove.ValueChanged += () => CanExecuteChanged(this, EventArgs.Empty);
-            }
-
-            public bool CanExecute(object parameter)
-            {
-                return _cIsValidMove.Value;
-            }
-
-            public void Execute(object parameter)
-            {
-                _PutStone();
-            }
+            this.PutStone = new ConditionalCommand(
+                cIsValidMove,
+                () => _cGame.Value = _cGame.Value.PutStone(_Position)
+            );
         }
     }
 }
