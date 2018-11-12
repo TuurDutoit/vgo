@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Model.Reversi;
 using Cells;
-using DataStructures;
+using Model.Reversi;
 
 namespace ViewModel
 {

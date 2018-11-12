@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
-using Model.Reversi;
+using System.Windows.Input;
 using Cells;
 using DataStructures;
-using System.Windows.Input;
+using Model.Reversi;
 
 namespace ViewModel
 {
