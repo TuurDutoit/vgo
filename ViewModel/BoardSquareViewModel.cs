@@ -14,8 +14,6 @@ namespace ViewModel
     public class BoardSquareViewModel
     {
         public Cell<Player> cOwner { get; private set; }
-        public Cell<bool> cHasStone { get; private set; }
-        public Cell<String> cPlayerColor { get; private set; }
         public Cell<bool> cIsValidMove { get; private set; }
         public ICommand PutStone { get; private set; }
         private Cell<ReversiGame> _cGame;
@@ -26,8 +24,6 @@ namespace ViewModel
             this._cGame = cGame;
             this._Position = position;
             this.cOwner = cGame.Derive(game => game.Board[position]);
-            this.cHasStone = cOwner.Derive(owner => owner != null);
-            this.cPlayerColor = cOwner.Derive(owner => owner == Player.BLACK ? "black" : "white");
             this.cIsValidMove = cGame.Derive(game => game.Board.IsValidMove(position, game.CurrentPlayer));
             this.PutStone = new PutStoneCommand(cIsValidMove, PutStoneAction);
         }

@@ -9,8 +9,7 @@
         SizeToContent="WidthAndHeight">
     
     <Window.Resources>
-        <local:OwnerToColorConverter x:Key="OwnerToColor"></local:OwnerToColorConverter>
-        <local:BoolToVisibilityConverter x:Key="BoolToVisibility"></local:BoolToVisibilityConverter>
+        <local:OwnerToStoneConverter x:Key="OwnerToStone"></local:OwnerToStoneConverter>
     </Window.Resources>
     
     <Grid>
@@ -37,9 +36,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Button Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="1" Width="35" Height="35" Command="{Binding PutStone}">
-                                    <Ellipse Width="20" Height="20" Stroke="Black" StrokeThickness="2" Visibility="{Binding cHasStone.Value, Converter={StaticResource BoolToVisibility}}" Fill="{Binding cPlayerColor.Value, Converter={StaticResource OwnerToColor}}" />
-                                </Button>
+                                <Button Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="1" Width="35" Height="35" Command="{Binding PutStone}" Content="{Binding cOwner.Value, Converter={StaticResource OwnerToStone}}" />
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
