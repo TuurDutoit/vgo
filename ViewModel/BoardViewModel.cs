@@ -12,7 +12,7 @@ namespace ViewModel
     public class BoardViewModel
     {
         internal Cell<ReversiGame> cGame;
-        public List<BoardRowViewModel> Rows { get; private set; }
+        public List<BoardRowViewModel> Rows { get; }
 
         public BoardViewModel(int width, int height)
         {

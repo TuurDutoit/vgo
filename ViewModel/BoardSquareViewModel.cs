@@ -13,9 +13,9 @@ namespace ViewModel
 {
     public class BoardSquareViewModel
     {
-        public Cell<Player> cOwner { get; private set; }
-        public Cell<bool> cIsValidMove { get; private set; }
-        public ICommand PutStone { get; private set; }
+        public Cell<Player> cOwner { get; }
+        public Cell<bool> cIsValidMove { get; }
+        public ICommand PutStone { get; }
         private Cell<ReversiGame> _cGame;
         private Vector2D _Position;
 

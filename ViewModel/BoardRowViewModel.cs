@@ -11,7 +11,7 @@ namespace ViewModel
 {
     public class BoardRowViewModel
     {
-        public List<BoardSquareViewModel> Squares { get; private set; }
+        public List<BoardSquareViewModel> Squares { get; }
 
         public BoardRowViewModel(Cell<ReversiGame> cGame, int rowIndex)
         {
