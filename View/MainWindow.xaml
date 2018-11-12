@@ -4,14 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
-        xmlns:vm="clr-namespace:ViewModel;assembly=ViewModel"
         mc:Ignorable="d"
         Title="MainWindow"
         SizeToContent="WidthAndHeight">
     
     <Window.Resources>
-        <vm:OwnerToColorConverter x:Key="OwnerToColorConverter"></vm:OwnerToColorConverter>
-        <vm:OwnerToVisibilityConverter x:Key="OwnerToVisibilityConverter"></vm:OwnerToVisibilityConverter>
+        <local:OwnerToColorConverter x:Key="OwnerToColor"></local:OwnerToColorConverter>
+        <local:BoolToVisibilityConverter x:Key="BoolToVisibility"></local:BoolToVisibilityConverter>
     </Window.Resources>
     
     <Grid>
@@ -22,7 +21,7 @@
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
-        <ItemsControl ItemsSource="{Binding Rows.Value}">
+        <ItemsControl ItemsSource="{Binding Rows}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Vertical" />
@@ -39,7 +38,7 @@
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <Button Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="1" Width="35" Height="35" Command="{Binding PutStone}">
-                                    <Ellipse Width="20" Height="20" Stroke="Black" StrokeThickness="2" Visibility="{Binding Owner.Value, Converter={StaticResource OwnerToVisibilityConverter}}" Fill="{Binding Owner.Value, Converter={StaticResource OwnerToColorConverter}}" />
+                                    <Ellipse Width="20" Height="20" Stroke="Black" StrokeThickness="2" Visibility="{Binding cHasStone.Value, Converter={StaticResource BoolToVisibility}}" Fill="{Binding cPlayerColor.Value, Converter={StaticResource OwnerToColor}}" />
                                 </Button>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>

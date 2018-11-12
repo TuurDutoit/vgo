@@ -7,24 +7,15 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using Model.Reversi;
 
-namespace ViewModel
+namespace View
 {
     public class OwnerToColorConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if(value != null && value is Player)
+            if(value != null && value is String)
             {
-                var p = (Player)value;
-
-                if(p == Player.WHITE)
-                {
-                    return "white";
-                }
-                else if(p == Player.BLACK)
-                {
-                    return "black";
-                }
+                return (String)value;
             }
 
             return "transparent";

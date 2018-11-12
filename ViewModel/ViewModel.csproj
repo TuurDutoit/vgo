@@ -45,8 +45,6 @@
     <Compile Include="BoardRowViewModel.cs" />
     <Compile Include="BoardSquareViewModel.cs" />
     <Compile Include="BoardViewModel.cs" />
-    <Compile Include="OwnerToColorConverter.cs" />
-    <Compile Include="OwnerToVisibilityConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

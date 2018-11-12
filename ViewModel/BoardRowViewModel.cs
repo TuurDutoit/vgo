@@ -5,22 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using Model.Reversi;
 using DataStructures;
+using Cells;
 
 namespace ViewModel
 {
     public class BoardRowViewModel
     {
-        public List<BoardSquareViewModel> Squares { get; set; }
+        public List<BoardSquareViewModel> Squares { get; private set; }
 
-        public BoardRowViewModel(int rowIndex, ReversiBoard board)
+        public BoardRowViewModel(Cell<ReversiGame> cGame, int rowIndex)
         {
             Squares = new List<BoardSquareViewModel>();
 
-            for(var i = 0; i < board.Width; i++)
+            for(var i = 0; i < cGame.Value.Board.Width; i++)
             {
                 var pos = new Vector2D(rowIndex, i);
-                var p = board[pos];
-                Squares.Add(new BoardSquareViewModel(p));
+                Squares.Add(new BoardSquareViewModel(cGame, pos));
             }
         }
     }

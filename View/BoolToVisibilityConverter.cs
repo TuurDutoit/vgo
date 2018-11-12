@@ -8,13 +8,13 @@ using System.Windows;
 using System.Windows.Data;
 using Model.Reversi;
 
-namespace ViewModel
+namespace View
 {
-    public class OwnerToVisibilityConverter : IValueConverter
+    public class BoolToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value != null && value is Player)
+            if (value != null && value is bool && (bool)value == true)
             {
                 return "Visible";
             }
