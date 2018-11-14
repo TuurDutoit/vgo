@@ -12,20 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Cells;
 using ViewModel;
 
 namespace View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainView : UserControl
     {
-        public MainWindow()
+        public MainView()
         {
             InitializeComponent();
-            this.DataContext = new MainWindowViewModel();
+            int Width = 10;
+            int Height = 10;
+            BoardViewModel vm = new BoardViewModel(Width, Height);
+            this.DataContext = vm;
         }
     }
 }
