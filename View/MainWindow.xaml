@@ -4,14 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
+        xmlns:model="clr-namespace:Model.Reversi;assembly=Model"
         mc:Ignorable="d"
         Title="MainWindow"
         SizeToContent="WidthAndHeight">
-    
+
     <Window.Resources>
-        <local:OwnerToStoneConverter x:Key="OwnerToStone"></local:OwnerToStoneConverter>
-        <ControlTemplate TargetType="Button" x:Key="Square">
-            <Border x:Name="Border" Background="White" BorderThickness="1" BorderBrush="#FF888888">
+        <ControlTemplate TargetType="Button" x:Key="SquareTemplate">
+            <Border x:Name="Border" Background="White" BorderThickness="1" BorderBrush="#FF888888" Width="35" Height="35">
                 <ContentPresenter />
             </Border>
             <ControlTemplate.Triggers>
@@ -19,10 +19,28 @@
                     <Setter TargetName="Border" Property="Background" Value="#FFCCCCCC" />
                 </Trigger>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter TargetName="Border" Property="Background" Value="#FFDDDDDD" />
+                    <Setter TargetName="Border" Property="Background" Value="#FFC5CBF9" />
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
+        <Style x:Key="StoneStyle" TargetType="Ellipse">
+            <Setter Property="Width" Value="25" />
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Stroke" Value="Black" />
+            <Setter Property="StrokeThickness" Value="2" />
+            <Setter Property="Fill" Value="White" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding}" Value="{x:Null}">
+                    <Setter Property="Visibility" Value="Hidden" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding}" Value="{x:Static model:Player.BLACK}">
+                    <Setter Property="Fill" Value="Black" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <DataTemplate x:Key="Stone" DataType="model:Player">
+            <Ellipse Style="{StaticResource StoneStyle}" />
+        </DataTemplate>
     </Window.Resources>
     
     <Grid>
@@ -49,7 +67,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Button Template="{StaticResource Square}" Background="White" BorderBrush="#FFAAAAAA" BorderThickness="1" Width="35" Height="35" Command="{Binding PutStone}" Content="{Binding cOwner.Value, Converter={StaticResource OwnerToStone}}" />
+                                <Button Template="{DynamicResource SquareTemplate}" Command="{Binding PutStone}" Content="{Binding cOwner.Value}" ContentTemplate="{StaticResource Stone}" />
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
