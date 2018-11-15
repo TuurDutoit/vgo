@@ -12,7 +12,7 @@
         <DataTemplate DataType="{x:Type vm:WelcomeViewModel}">
             <local:WelcomeView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type vm:BoardViewModel}">
+        <DataTemplate DataType="{x:Type vm:MainViewModel}">
             <local:MainView />
         </DataTemplate>
     </Window.Resources>

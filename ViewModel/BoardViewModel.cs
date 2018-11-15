@@ -13,13 +13,12 @@ namespace ViewModel
         internal Cell<ReversiGame> cGame;
         public List<BoardRowViewModel> Rows { get; }
 
-        public BoardViewModel(int width, int height)
+        public BoardViewModel(Cell<ReversiGame> cGame)
         {
-            var game = new ReversiGame(width, height);
-            this.cGame = Cell.Create(game);
+            this.cGame = cGame;
             this.Rows = new List<BoardRowViewModel>();
 
-            for (var i = 0; i < game.Board.Height; i++)
+            for (var i = 0; i < cGame.Value.Board.Height; i++)
             {
                 Rows.Add(new BoardRowViewModel(cGame, i));
             }

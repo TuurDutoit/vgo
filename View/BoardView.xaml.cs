@@ -12,15 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ViewModel;
 
 namespace View
 {
     /// <summary>
     /// Interaction logic for MainView.xaml
     /// </summary>
-    public partial class MainView : UserControl
+    public partial class BoardView : UserControl
     {
-        public MainView()
+        public BoardView()
         {
             InitializeComponent();
         }

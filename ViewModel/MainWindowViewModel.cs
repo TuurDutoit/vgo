@@ -13,7 +13,7 @@ namespace ViewModel
 
         public MainWindowViewModel()
         {
-            this.CurrentScreen = Cell.Create<object>(new BoardViewModel(10, 10));
+            this.CurrentScreen = Cell.Create<object>(new MainViewModel(8, 8));
         }
     }
 }
