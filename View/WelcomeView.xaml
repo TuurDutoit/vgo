@@ -6,7 +6,15 @@
              xmlns:local="clr-namespace:View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <StackPanel Margin="20">
         <TextBlock>Welcome</TextBlock>
-    </Grid>
+        <TextBox Text="{Binding cName1.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox Text="{Binding cName2.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <StackPanel Orientation="Horizontal">
+            <TextBox Text="{Binding cWidth.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="50" />
+            <TextBlock>x</TextBlock>
+            <TextBox Text="{Binding cHeight.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="50" />
+        </StackPanel>
+        <Button Command="{Binding GoToScreen}">Start</Button>
+    </StackPanel>
 </UserControl>

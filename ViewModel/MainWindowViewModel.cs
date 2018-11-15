@@ -13,7 +13,12 @@ namespace ViewModel
 
         public MainWindowViewModel()
         {
-            this.CurrentScreen = Cell.Create<object>(new MainViewModel(8, 8));
+            this.CurrentScreen = Cell.Create<object>(new WelcomeViewModel(goToScreen));
+        }
+
+        private void goToScreen(object screen)
+        {
+            CurrentScreen.Value = screen;
         }
     }
 }
