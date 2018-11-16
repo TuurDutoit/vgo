@@ -10,21 +10,21 @@
     <UserControl.Resources>
         <Style TargetType="StackPanel" x:Key="ContainerStyle">
             <Style.Triggers>
-                <DataTrigger Binding="{Binding Player}" Value="{x:Static model:Player.BLACK}">
+                <DataTrigger Binding="{Binding cIsCurrentPlayer.Value}" Value="True">
                     <Setter Property="Background" Value="Black" />
                 </DataTrigger>
             </Style.Triggers>
         </Style>
         <Style TargetType="TextBlock">
             <Style.Triggers>
-                <DataTrigger Binding="{Binding Player}" Value="{x:Static model:Player.BLACK}">
+                <DataTrigger Binding="{Binding cIsCurrentPlayer.Value}" Value="True">
                     <Setter Property="Foreground" Value="White" />
                 </DataTrigger>
             </Style.Triggers>
         </Style>
         <Style TargetType="ProgressBar" x:Key="ProgressStyle">
             <Style.Triggers>
-                <DataTrigger Binding="{Binding Player}" Value="{x:Static model:Player.BLACK}">
+                <DataTrigger Binding="{Binding cIsCurrentPlayer.Value}" Value="True">
                     <Setter Property="RenderTransform">
                         <Setter.Value>
                             <ScaleTransform ScaleX="-1" />
@@ -36,7 +36,9 @@
     </UserControl.Resources>
 
     <StackPanel Style="{StaticResource ContainerStyle}">
-        <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="18" />
+        <StackPanel>
+            <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="18" />
+        </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Stones: " />
             <TextBlock Text="{Binding cStones.Value}" />

@@ -12,6 +12,7 @@ namespace ViewModel
     {
         public String Name { get; }
         public Player Player { get; }
+        public Cell<bool> cIsCurrentPlayer { get; }
         public Cell<int> cStones { get; }
         public Cell<int> cTotalSquares { get; }
 
@@ -19,6 +20,7 @@ namespace ViewModel
         {
             this.Name = name;
             this.Player = player;
+            this.cIsCurrentPlayer = cGame.Derive(game => game.CurrentPlayer == player);
             this.cStones = cGame.Derive(game => game.Board.CountStones(player));
             this.cTotalSquares = cGame.Derive(game => game.Board.Width * game.Board.Height);
         }
