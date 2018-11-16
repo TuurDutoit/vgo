@@ -12,20 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Cells;
-using ViewModel;
 
 namespace View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for GameOverView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class GameOverView : UserControl
     {
-        public MainWindow()
+        public GameOverView()
         {
             InitializeComponent();
-            this.DataContext = new MainWindowViewModel(this.Close);
         }
     }
 }

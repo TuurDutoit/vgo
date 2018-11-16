@@ -20,7 +20,7 @@ namespace ViewModel
 
             for(var i = 0; i < cGame.Value.Board.Width; i++)
             {
-                var pos = new Vector2D(rowIndex, i);
+                var pos = new Vector2D(i, rowIndex);
                 Squares.Add(new BoardSquareViewModel(cGame, pos));
             }
         }

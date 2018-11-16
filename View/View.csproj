@@ -60,6 +60,9 @@
     <Compile Include="BoardView.xaml.cs">
       <DependentUpon>BoardView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GameOverView.xaml.cs">
+      <DependentUpon>GameOverView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
@@ -69,6 +72,10 @@
     <Compile Include="WelcomeView.xaml.cs">
       <DependentUpon>WelcomeView.xaml</DependentUpon>
     </Compile>
+    <Page Include="GameOverView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Skins\base.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

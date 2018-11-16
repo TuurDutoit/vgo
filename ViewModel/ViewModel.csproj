@@ -46,6 +46,7 @@
     <Compile Include="BoardSquareViewModel.cs" />
     <Compile Include="BoardViewModel.cs" />
     <Compile Include="ConditionalCommand.cs" />
+    <Compile Include="GameOverViewModel.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="PlayerViewModel.cs" />

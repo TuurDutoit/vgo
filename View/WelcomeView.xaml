@@ -38,6 +38,6 @@
                 Width="45"
             />
         </StackPanel>
-        <Button Command="{Binding GoToScreen}" FontSize="20">Start</Button>
+        <Button Command="{Binding GoToMainView}" FontSize="20">Start</Button>
     </StackPanel>
 </UserControl>

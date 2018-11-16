@@ -9,7 +9,7 @@ using Model.Reversi;
 
 namespace ViewModel
 {
-    public class WelcomeViewModel
+    public class WelcomeViewModel : Screen
     {
         public List<int> Widths { get; }
         public List<int> Heights { get; }
@@ -17,12 +17,10 @@ namespace ViewModel
         public Cell<String> cName2 { get; }
         public Cell<int> cWidth { get; }
         public Cell<int> cHeight { get; }
-        public ICommand GoToScreen { get; }
-        private GoToScreenAction _goToScreen;
-        private Cell<bool> _canStart;
-        public delegate void GoToScreenAction(object newScreen);
+        public ICommand GoToMainView { get; }
+        private Cell<bool> _cCanStart;
 
-        public WelcomeViewModel(GoToScreenAction goToScreen)
+        public WelcomeViewModel()
         {
             this.Widths = new List<int>();
             this.Heights = new List<int>();
@@ -30,14 +28,14 @@ namespace ViewModel
             this.cName2 = Cell.Create("Thomas");
             this.cWidth = Cell.Create(8);
             this.cHeight = Cell.Create(8);
-            this._goToScreen = goToScreen;
-            this._canStart = Cell.Derived(cName1, cName2, cWidth, cHeight, (name1, name2, w, h) =>
+            this._cCanStart = Cell.Derived(cName1, cName2, cWidth, cHeight, (name1, name2, w, h) =>
                 !String.IsNullOrWhiteSpace(name1) &&
                 !String.IsNullOrWhiteSpace(name2) &&
                 ReversiBoard.IsValidWidth(w) &&
-                ReversiBoard.IsValidHeight(h)
+                ReversiBoard.IsValidHeight(h) &&
+                (w != 2 || h != 2)
             );
-            this.GoToScreen = new ConditionalCommand(_canStart, navigate);
+            this.GoToMainView = new ConditionalCommand(_cCanStart, goToMainView);
 
             for(int i = 0; i < 30; i++)
             {
@@ -52,9 +50,9 @@ namespace ViewModel
             }
         }
 
-        private void navigate()
+        private void goToMainView()
         {
-            _goToScreen(new MainViewModel(cWidth.Value, cHeight.Value, cName1.Value, cName2.Value));
+            Navigate(new MainViewModel(cWidth.Value, cHeight.Value, cName1.Value, cName2.Value));
         }
     }
 }

@@ -26,7 +26,7 @@ namespace ViewModel
             this._Position = position;
             this.cOwner = cGame.Derive(game => game.Board[position]);
             this.cHasStone = cOwner.Derive(owner => owner != null);
-            this.cIsValidMove = cGame.Derive(game => game.Board.IsValidMove(position, game.CurrentPlayer));
+            this.cIsValidMove = cGame.Derive(game => game.IsValidMove(position));
             this.PutStone = new ConditionalCommand(
                 cIsValidMove,
                 () => _cGame.Value = _cGame.Value.PutStone(_Position)
