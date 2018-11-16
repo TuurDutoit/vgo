@@ -15,6 +15,7 @@ namespace ViewModel
         public PlayerViewModel Player2VM { get; }
         public Cell<int> cTotalStones { get; }
         public Cell<int> cTotalSquares { get; }
+        public History<ReversiGame> History { get; }
         private Cell<ReversiGame> _cGame { get; }
         private Cell<bool> _cIsGameOver { get; }
         private String _Name1;
@@ -30,6 +31,7 @@ namespace ViewModel
             this.Player2VM = new PlayerViewModel(_cGame, Player.WHITE, name2);
             this.cTotalStones = _cGame.Derive(game => game.Board.CountStones(_Player1) + game.Board.CountStones(_Player2));
             this.cTotalSquares = _cGame.Derive(game => game.Board.Width * game.Board.Height);
+            this.History = new History<ReversiGame>(_cGame);
             this._cIsGameOver = _cGame.Derive(game => game.IsGameOver);
             this._cIsGameOver.ValueChanged += GameOver;
             this._Name1 = name1;
@@ -43,5 +45,7 @@ namespace ViewModel
             String winnerName = p1Score == p2Score ? null : p1Score > p2Score ? _Name1 : _Name2;
             Navigate(new GameOverViewModel(winnerName));
         }
+
+
     }
 }

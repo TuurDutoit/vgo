@@ -47,6 +47,7 @@
     <Compile Include="BoardViewModel.cs" />
     <Compile Include="ConditionalCommand.cs" />
     <Compile Include="GameOverViewModel.cs" />
+    <Compile Include="History.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="PlayerViewModel.cs" />
