@@ -35,19 +35,22 @@
         </Style>
     </UserControl.Resources>
 
-    <StackPanel Style="{StaticResource ContainerStyle}">
-        <StackPanel>
-            <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="18" />
+    <StackPanel>
+        <ContentPresenter Content="{Binding Player}" ContentTemplate="{DynamicResource Stone}" Margin="0,10,0,10" />
+        <StackPanel Style="{StaticResource ContainerStyle}">
+            <StackPanel Margin="10">
+                <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="18" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Stones: " />
+                    <TextBlock Text="{Binding cStones.Value}" />
+                    <TextBlock Text=" of " />
+                    <TextBlock Text="{Binding cTotalSquares.Value}" />
+                </StackPanel>
+            </StackPanel>
+            <Grid>
+                <ProgressBar Minimum="0" Maximum="{Binding cTotalSquares.Value}" Value="{Binding cStones.Value}" Height="10" />
+                <Rectangle Fill="#FFAAAAAA" Width="1" Height="10" HorizontalAlignment="Center" />
+            </Grid>
         </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Stones: " />
-            <TextBlock Text="{Binding cStones.Value}" />
-            <TextBlock Text=" of " />
-            <TextBlock Text="{Binding cTotalSquares.Value}" />
-        </StackPanel>
-        <Grid>
-            <ProgressBar Minimum="0" Maximum="{Binding cTotalSquares.Value}" Value="{Binding cStones.Value}" Height="10" />
-            <Rectangle Fill="#FFAAAAAA" Width="1" Height="10" HorizontalAlignment="Center" />
-        </Grid>
     </StackPanel>
 </UserControl>

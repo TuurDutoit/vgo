@@ -5,6 +5,6 @@
              xmlns:mv="clr-namespace:ViewModel;assembly=ViewModel"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        
+        <ResourceDictionary Source="Skins\base.xaml" />
     </Application.Resources>
 </Application>

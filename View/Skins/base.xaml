@@ -1,0 +1,36 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:View"
+                    xmlns:model="clr-namespace:Model.Reversi;assembly=Model">
+    <ControlTemplate TargetType="Button" x:Key="SquareTemplate">
+        <Border x:Name="Border" Background="White" BorderThickness="1" BorderBrush="#FF888888" Width="40" Height="40">
+            <ContentPresenter />
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="Border" Property="Background" Value="#FFCCCCCC" />
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Border" Property="Background" Value="#FFC5CBF9" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <Style x:Key="StoneStyle" TargetType="Ellipse">
+        <Setter Property="Width" Value="25" />
+        <Setter Property="Height" Value="25" />
+        <Setter Property="Stroke" Value="Black" />
+        <Setter Property="StrokeThickness" Value="2" />
+        <Setter Property="Fill" Value="White" />
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding}" Value="{x:Null}">
+                <Setter Property="Visibility" Value="Hidden" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding}" Value="{x:Static model:Player.BLACK}">
+                <Setter Property="Fill" Value="Black" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+    <DataTemplate x:Key="Stone" DataType="model:Player">
+        <Ellipse Style="{StaticResource StoneStyle}" />
+    </DataTemplate>
+</ResourceDictionary>
