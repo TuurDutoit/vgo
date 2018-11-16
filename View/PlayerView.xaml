@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <Style TargetType="Grid" x:Key="ContainerStyle">
+        <Style TargetType="StackPanel" x:Key="ContainerStyle">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding Player}" Value="{x:Static model:Player.BLACK}">
                     <Setter Property="Background" Value="Black" />
@@ -22,9 +22,30 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+        <Style TargetType="ProgressBar" x:Key="ProgressStyle">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Player}" Value="{x:Static model:Player.BLACK}">
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="-1" />
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
     </UserControl.Resources>
-    
-    <Grid Style="{StaticResource ContainerStyle}">
-        <TextBlock Text="{Binding Name}" />
-    </Grid>
+
+    <StackPanel Style="{StaticResource ContainerStyle}">
+        <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="18" />
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Stones: " />
+            <TextBlock Text="{Binding cStones.Value}" />
+            <TextBlock Text=" of " />
+            <TextBlock Text="{Binding cTotalSquares.Value}" />
+        </StackPanel>
+        <Grid>
+            <ProgressBar Minimum="0" Maximum="{Binding cTotalSquares.Value}" Value="{Binding cStones.Value}" Height="10" />
+            <Rectangle Fill="#FFAAAAAA" Width="1" Height="10" HorizontalAlignment="Center" />
+        </Grid>
+    </StackPanel>
 </UserControl>

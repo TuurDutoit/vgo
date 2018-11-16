@@ -15,8 +15,18 @@
             <local:PlayerView />
         </DataTemplate>
     </UserControl.Resources>
-    <StackPanel>
-        <Grid>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <ProgressBar Minimum="0" Maximum="{Binding cTotalSquares.Value}" Value="{Binding cTotalStones.Value}" Grid.Row="0" Height="10" />
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -24,6 +34,6 @@
             <ContentPresenter Content="{Binding Player1VM}" Grid.Column="0" />
             <ContentPresenter Content="{Binding Player2VM}" Grid.Column="1" />
         </Grid>
-        <ContentControl Content="{Binding BoardVM}" />
-    </StackPanel>
+        <ContentControl Content="{Binding BoardVM}" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+    </Grid>
 </UserControl>
