@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:View"
         xmlns:vm="clr-namespace:ViewModel;assembly=ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow"
+        Title="Reversi"
         SizeToContent="WidthAndHeight">
     <Window.Resources>
         <DataTemplate DataType="{x:Type vm:WelcomeViewModel}">
