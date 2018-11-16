@@ -71,10 +71,6 @@ namespace ViewModel
         private void OnChange()
         {
             T step = _Cell.Value;
-            Console.WriteLine(step);
-            Console.WriteLine(_Steps.Count());
-            Console.WriteLine(_cCurrentIndex.Value);
-            Console.WriteLine(_Steps.Contains(step));
 
             if(_Steps.Contains(step))
             {

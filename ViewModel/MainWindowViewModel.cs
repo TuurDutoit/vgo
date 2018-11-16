@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Cells;
 
 namespace ViewModel
@@ -10,14 +11,16 @@ namespace ViewModel
     public class MainWindowViewModel : INavigator
     {
         public Cell<IScreen> CurrentScreen { get; }
+        private Window _Window;
         private Action _CloseWindow;
 
-        public MainWindowViewModel(Action closeWindow)
+        public MainWindowViewModel(Window window)
         {
             this.CurrentScreen = Cell.Create<IScreen>(null);
             this.CurrentScreen.ValueChanged += () => this.CurrentScreen.Value.SetNavigator(this);
             this.CurrentScreen.Value = new WelcomeViewModel();
-            this._CloseWindow = closeWindow;
+            this._Window = window;
+            this._CloseWindow = window.Close;
         }
 
         public void Navigate(IScreen screen)

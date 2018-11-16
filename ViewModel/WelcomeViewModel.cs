@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Media;
 using Cells;
 using Model.Reversi;
 
@@ -15,6 +16,8 @@ namespace ViewModel
         public List<int> Heights { get; }
         public Cell<String> cName1 { get; }
         public Cell<String> cName2 { get; }
+        public Cell<Color> cColor1 { get; }
+        public Cell<Color> cColor2 { get; }
         public Cell<int> cWidth { get; }
         public Cell<int> cHeight { get; }
         public ICommand GoToMainView { get; }
@@ -26,6 +29,8 @@ namespace ViewModel
             this.Heights = new List<int>();
             this.cName1 = Cell.Create("Tuur");
             this.cName2 = Cell.Create("Thomas");
+            this.cColor1 = Cell.Create(Colors.Black);
+            this.cColor2 = Cell.Create(Colors.White);
             this.cWidth = Cell.Create(8);
             this.cHeight = Cell.Create(8);
             this._cCanStart = Cell.Derived(cName1, cName2, cWidth, cHeight, (name1, name2, w, h) =>
@@ -52,7 +57,7 @@ namespace ViewModel
 
         private void goToMainView()
         {
-            Navigate(new MainViewModel(cWidth.Value, cHeight.Value, cName1.Value, cName2.Value));
+            Navigate(new MainViewModel(cWidth.Value, cHeight.Value, cName1.Value, cName2.Value, cColor1.Value, cColor2.Value));
         }
     }
 }
