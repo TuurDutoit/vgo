@@ -26,8 +26,8 @@ namespace ViewModel
         {
             this.Widths = new List<int>();
             this.Heights = new List<int>();
-            this.cName1 = Cell.Create("");
-            this.cName2 = Cell.Create("");
+            this.cName1 = Cell.Create("Tuur");
+            this.cName2 = Cell.Create("Thomas");
             this.cWidth = Cell.Create(8);
             this.cHeight = Cell.Create(8);
             this._goToScreen = goToScreen;

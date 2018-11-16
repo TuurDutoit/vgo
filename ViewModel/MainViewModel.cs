@@ -11,8 +11,8 @@ namespace ViewModel
     public class MainViewModel
     {
         public BoardViewModel BoardVM { get; }
-        public String Name1 { get; }
-        public String Name2 { get; }
+        public PlayerViewModel Player1VM { get; }
+        public PlayerViewModel Player2VM { get; }
         private Cell<ReversiGame> cGame { get; }
 
         public MainViewModel(int width, int height, String name1, String name2)
@@ -20,8 +20,8 @@ namespace ViewModel
             var game = new ReversiGame(width, height);
             this.cGame = Cell.Create(game);
             this.BoardVM = new BoardViewModel(cGame);
-            this.Name1 = name1;
-            this.Name2 = name2;
+            this.Player1VM = new PlayerViewModel(cGame, Player.BLACK, name1);
+            this.Player2VM = new PlayerViewModel(cGame, Player.WHITE, name2);
         }
     }
 }

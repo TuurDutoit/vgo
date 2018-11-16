@@ -11,8 +11,19 @@
         <DataTemplate DataType="{x:Type vm:BoardViewModel}">
             <local:BoardView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:PlayerViewModel}">
+            <local:PlayerView />
+        </DataTemplate>
     </UserControl.Resources>
-    <Grid>
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <ContentPresenter Content="{Binding Player1VM}" Grid.Column="0" />
+            <ContentPresenter Content="{Binding Player2VM}" Grid.Column="1" />
+        </Grid>
         <ContentControl Content="{Binding BoardVM}" />
-    </Grid>
+    </StackPanel>
 </UserControl>
