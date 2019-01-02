@@ -81,6 +81,9 @@
     <Compile Include="GameOverView.xaml.cs">
       <DependentUpon>GameOverView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HistoryView.xaml.cs">
+      <DependentUpon>HistoryView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
@@ -91,6 +94,10 @@
       <DependentUpon>WelcomeView.xaml</DependentUpon>
     </Compile>
     <Page Include="GameOverView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HistoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

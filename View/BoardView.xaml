@@ -14,7 +14,7 @@
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
-        <ItemsControl ItemsSource="{Binding Rows}">
+        <ItemsControl ItemsSource="{Binding VM.Rows}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Vertical" />

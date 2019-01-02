@@ -10,15 +10,13 @@ namespace ViewModel
 {
     public class PlayerViewModel
     {
-        public String Name { get; }
         public Player Player { get; }
         public Cell<bool> cIsCurrentPlayer { get; }
         public Cell<int> cStones { get; }
         public Cell<int> cTotalSquares { get; }
 
-        public PlayerViewModel(Cell<ReversiGame> cGame, Player player, String name)
+        public PlayerViewModel(Cell<ReversiGame> cGame, Player player)
         {
-            this.Name = name;
             this.Player = player;
             this.cIsCurrentPlayer = cGame.Derive(game => game.CurrentPlayer == player);
             this.cStones = cGame.Derive(game => game.Board.CountStones(player));

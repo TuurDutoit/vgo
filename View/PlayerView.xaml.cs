@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Cells;
+using ViewModel;
+using Model.Reversi;
 
 namespace View
 {
@@ -20,9 +23,16 @@ namespace View
     /// </summary>
     public partial class PlayerView : UserControl
     {
-        public PlayerView()
+        public PlayerViewModel VM { get; }
+        public String PlayerName { get; }
+
+        public PlayerView(Cell<ReversiGame> cGame, Player player, String name)
         {
             InitializeComponent();
+            this.VM = new PlayerViewModel(cGame, player);
+            this.PlayerName = name;
+
+            this.DataContext = this;
         }
     }
 }

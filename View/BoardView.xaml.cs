@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ViewModel;
+using Cells;
+using ViewModel;
+using Model.Reversi;
 
 namespace View
 {
@@ -21,9 +24,14 @@ namespace View
     /// </summary>
     public partial class BoardView : UserControl
     {
-        public BoardView()
+        public BoardViewModel VM { get; }
+
+        public BoardView(Cell<ReversiGame> cGame)
         {
             InitializeComponent();
+            this.VM = new BoardViewModel(cGame);
+
+            this.DataContext = this;
         }
     }
 }

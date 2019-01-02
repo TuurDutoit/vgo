@@ -31,17 +31,17 @@
         <TextBlock Margin="0,10,0,0" HorizontalAlignment="Center">Board Size</TextBlock>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
             <ComboBox
-                ItemsSource="{Binding Widths}"
-                SelectedValue="{Binding cWidth.Value, UpdateSourceTrigger=PropertyChanged}"
+                ItemsSource="{Binding VM.Widths}"
+                SelectedValue="{Binding VM.cWidth.Value, UpdateSourceTrigger=PropertyChanged}"
                 Width="45"
             />
             <TextBlock Margin="10,0,10,0">x</TextBlock>
             <ComboBox
-                ItemsSource="{Binding Heights}"
-                SelectedValue="{Binding cHeight.Value, UpdateSourceTrigger=PropertyChanged}"
+                ItemsSource="{Binding VM.Heights}"
+                SelectedValue="{Binding VM.cHeight.Value, UpdateSourceTrigger=PropertyChanged}"
                 Width="45"
             />
         </StackPanel>
-        <Button Command="{Binding GoToMainView}" FontSize="20">Start</Button>
+        <Button Command="{Binding Start}" FontSize="20">Start</Button>
     </StackPanel>
 </UserControl>

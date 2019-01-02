@@ -10,14 +10,14 @@
     <UserControl.Resources>
         <Style TargetType="StackPanel" x:Key="ContainerStyle">
             <Style.Triggers>
-                <DataTrigger Binding="{Binding cIsCurrentPlayer.Value}" Value="True">
+                <DataTrigger Binding="{Binding VM.cIsCurrentPlayer.Value}" Value="True">
                     <Setter Property="Background" Value="#FFCCCCCC" />
                 </DataTrigger>
             </Style.Triggers>
         </Style>
         <Style TargetType="ProgressBar" x:Key="ProgressStyle">
             <Style.Triggers>
-                <DataTrigger Binding="{Binding cIsCurrentPlayer.Value}" Value="True">
+                <DataTrigger Binding="{Binding VM.cIsCurrentPlayer.Value}" Value="True">
                     <Setter Property="RenderTransform">
                         <Setter.Value>
                             <ScaleTransform ScaleX="-1" />
@@ -29,18 +29,18 @@
     </UserControl.Resources>
 
     <StackPanel Orientation="Horizontal">
-        <ContentPresenter Content="{Binding Player}" ContentTemplate="{DynamicResource Stone}" Margin="10,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Left" />
+        <ContentPresenter Content="{Binding VM.Player}" ContentTemplate="{DynamicResource Stone}" Margin="10,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Left" />
         <StackPanel Style="{StaticResource ContainerStyle}" VerticalAlignment="Center">
             <StackPanel Margin="10" MinWidth="200">
-                <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="18" />
+                <TextBlock Text="{Binding PlayerName}" FontWeight="Bold" FontSize="18" />
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                     <TextBlock Text="Stones: " />
-                    <TextBlock Text="{Binding cStones.Value}" />
+                    <TextBlock Text="{Binding VM.cStones.Value}" />
                     <TextBlock Text=" of " />
-                    <TextBlock Text="{Binding cTotalSquares.Value}" />
+                    <TextBlock Text="{Binding VM.cTotalSquares.Value}" />
                 </StackPanel>
                 <Grid>
-                    <ProgressBar Minimum="0" Maximum="{Binding cTotalSquares.Value}" Value="{Binding cStones.Value}" Height="10" />
+                    <ProgressBar Minimum="0" Maximum="{Binding VM.cTotalSquares.Value}" Value="{Binding VM.cStones.Value}" Height="10" />
                     <Rectangle Fill="#FFAAAAAA" Width="1" Height="10" HorizontalAlignment="Center" />
                 </Grid>
             </StackPanel>

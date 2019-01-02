@@ -12,18 +12,25 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Cells;
+using ViewModel;
+using Model.Reversi;
 
 namespace View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for HistoryView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class HistoryView : UserControl
     {
-        public MainWindow()
+        public HistoryViewModel VM { get; }
+
+        public HistoryView(Cell<ReversiGame> cGame)
         {
             InitializeComponent();
-            this.Content = new WelcomeView();
+            this.VM = new HistoryViewModel(cGame);
+
+            this.DataContext = this;
         }
     }
 }

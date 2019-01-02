@@ -9,17 +9,5 @@
         Title="Reversi"
         SizeToContent="WidthAndHeight"
         ResizeMode="NoResize">
-    <Window.Resources>
-        <DataTemplate DataType="{x:Type vm:WelcomeViewModel}">
-            <local:WelcomeView />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type vm:MainViewModel}">
-            <local:MainView />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type vm:GameOverViewModel}">
-            <local:GameOverView />
-        </DataTemplate>
-    </Window.Resources>
-
-    <ContentControl Content="{Binding CurrentScreen.Value}" />
+    
 </Window>

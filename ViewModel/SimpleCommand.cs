@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace ViewModel
 {
-    class SimpleCommand : ICommand
+    public class SimpleCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
         private Action _Action;

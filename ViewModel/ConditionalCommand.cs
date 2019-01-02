@@ -8,7 +8,7 @@ using Cells;
 
 namespace ViewModel
 {
-    class ConditionalCommand : ICommand
+    public class ConditionalCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
         private Cell<bool> _cCanExecute;

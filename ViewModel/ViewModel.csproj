@@ -48,10 +48,9 @@
     <Compile Include="BoardSquareViewModel.cs" />
     <Compile Include="BoardViewModel.cs" />
     <Compile Include="ConditionalCommand.cs" />
-    <Compile Include="GameOverViewModel.cs" />
     <Compile Include="History.cs" />
+    <Compile Include="HistoryViewModel.cs" />
     <Compile Include="MainViewModel.cs" />
-    <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="PlayerViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleCommand.cs" />
