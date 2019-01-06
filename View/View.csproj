@@ -78,6 +78,7 @@
     <Compile Include="BoardView.xaml.cs">
       <DependentUpon>BoardView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EndScreen.cs" />
     <Compile Include="GameOverView.xaml.cs">
       <DependentUpon>GameOverView.xaml</DependentUpon>
     </Compile>
@@ -98,10 +99,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="HistoryView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Skins\base.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -128,6 +125,10 @@
     <Page Include="PlayerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="WelcomeView.xaml">
       <SubType>Designer</SubType>

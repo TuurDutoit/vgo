@@ -9,12 +9,20 @@
     <UserControl.Resources>
         <local:NameToMessageConverter x:Key="NameToMessageConverter" />
     </UserControl.Resources>
+    <!--
     <StackPanel Margin="20">
         <TextBlock Text="Game Over!" FontSize="35" FontWeight="Bold" HorizontalAlignment="Center" />
         <TextBlock Text="{Binding WinnerName, Converter={StaticResource NameToMessageConverter}}" FontSize="20" HorizontalAlignment="Center" Margin="0,10,0,20" />
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Command="{Binding CloseCommand}" Padding="5,2,5,2" Margin="0,0,10,0">Close</Button>
+            <local:CloseButton Padding="5,2,5,2" Margin="0,0,10,0" />
             <Button Command="{Binding RestartCommand}" Padding="5,2,5,2">Start over</Button>
         </StackPanel>
     </StackPanel>
+    -->
+    <local:EndScreen
+        Title="Game Over!"
+        Message="{Binding WinnerName, Converter={StaticResource NameToMessageConverter}}"
+        OtherLabel="Start Over"
+        OtherCommand="{Binding RestartCommand}"
+    />
 </UserControl>
